@@ -14,6 +14,28 @@ Design a binary tree node class with the following methods:
 You may augment the node to add parent pointers or any other property you would like. You may assume the class is used in a single-threaded program, so there is no need for actual locks or mutexes. Each method should run in O(h), where h is the height of the tree.
 */
 
+class node {
+  constructor(value=0,left=null,right=null) {
+    this.value=value;
+    this.left=left;
+    this.right=right;
+    this.locked=0; //0=not locked; 1=locked
+  }
+
+  is_locked() {
+    return this.locked;
+  }
+
+  lock() {
+    this.locked = 1;
+    return 1;
+  }
+
+  unlock() {
+    this.locked = 0;
+    return 1;
+  }
+}
 
 $(document).ready(function() {
   $('#output-section-1').text(1);
