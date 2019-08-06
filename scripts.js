@@ -15,8 +15,9 @@ You may augment the node to add parent pointers or any other property you would 
 */
 
 class node {
-  constructor(value=0,left=null,right=null) {
+  constructor(value=0,parent=null,left=null,right=null) {
     this.value=value;
+    this.parent=parent;
     this.left=left;
     this.right=right;
     this.locked=0; //0=not locked; 1=locked
@@ -35,14 +36,35 @@ class node {
     this.locked = 0;
     return 1;
   }
+
+  addLeftChild(name) {
+    this.left=name;
+    this.left.parent=this.value;
+    return 1;
+  }
+
+  addRightChild(name) {
+    this.right=name;
+    this.right.parent=this.value;
+    return 1;
+  }
+
+  check() {
+
+  }
 }
 
 let node6 = new node(6);
 let node5 = new node(5);
 let node4 = new node(4);
-let node3 = new node(3,node6);
-let node2 = new node(2,node4,node5);
-let root = new node(1,node2,node3);
+let node3 = new node(3);
+let node2 = new node(2);
+let root = new node(1);
+root.addLeftChild(node2);
+root.addRightChild(node3);
+root.left.addLeftChild(node4);
+root.left.addRightChild(node5);
+root.right.addLeftChild(node6);
 
 $(document).ready(function() {
   $('#output-section-1').text(1);
