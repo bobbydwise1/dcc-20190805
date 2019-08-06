@@ -56,16 +56,33 @@ class node {
   }
 
   checkAncestor() {
-    // let count = 0;
-    // let now = this.value;
-    // let parent = this.parent;
-    // while (parent != null) {
-    //
-    // }
+    let count = 0;
+    parent = this.parent;
+    while (parent != null) {
+      if (parent.locked === 1) {
+        count++;
+      }
+      parent = parent.parent;
+    }
+    return count;
   }
-
+//How does one loop through all the children to count all the locked ones?
   checkChildren() {
-
+    let count = 0;
+    childLeft = this.left;
+    childRight = this.right;
+    while (childLeft != null) {
+      if (childLeft.locked === 1) {
+        count++;
+      }
+      childLeft = childLeft.left;
+    }
+    while (childRight != null) {
+      if (childRight.locked === 1) {
+        count++;
+      }
+      childRight = childRight.right;
+    }
   }
 }
 
