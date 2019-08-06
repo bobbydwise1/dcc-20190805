@@ -37,6 +37,13 @@ class node {
   }
 }
 
+let node6 = new node(6);
+let node5 = new node(5);
+let node4 = new node(4);
+let node3 = new node(3,node6);
+let node2 = new node(2,node4,node5);
+let root = new node(1,node2,node3);
+
 $(document).ready(function() {
   $('#output-section-1').text(1);
   $('#output-section-2').text(2);
