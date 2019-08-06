@@ -14,6 +14,12 @@ Design a binary tree node class with the following methods:
 You may augment the node to add parent pointers or any other property you would like. You may assume the class is used in a single-threaded program, so there is no need for actual locks or mutexes. Each method should run in O(h), where h is the height of the tree.
 */
 
+/*
+
+
+
+*/
+
 class node {
   constructor(value=0,parent=null,left=null,right=null) {
     this.value=value;
@@ -39,17 +45,26 @@ class node {
 
   addLeftChild(name) {
     this.left=name;
-    this.left.parent=this.value;
+    this.left.parent=this;
     return 1;
   }
 
   addRightChild(name) {
     this.right=name;
-    this.right.parent=this.value;
+    this.right.parent=this;
     return 1;
   }
 
-  check() {
+  checkAncestor() {
+    // let count = 0;
+    // let now = this.value;
+    // let parent = this.parent;
+    // while (parent != null) {
+    //
+    // }
+  }
+
+  checkChildren() {
 
   }
 }
